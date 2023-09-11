@@ -282,6 +282,72 @@ Resul(2,6) = Media80M3;
 Resul = array2table(Resul); 
 ResultadosIso80 = renamevars(Resul, ["Resul1","Resul2","Resul3","Resul4","Resul5","Resul6"],["StdTot [Gy]","AreaTot [cm2]","DosisMediaTot [Gy]","StdIso80 [Gy]","AreaIso80 [cm2]","DosisMediaIso80 [Gy]"]);
 
+%% Datos Pelet: 
+% Creo ROI: 
+%Las células por el método de cultivo (se les da vueltas) quedan
+%depositadas en forma de triangulo: 
+xi = zeros(1,3); 
+yi = zeros(1,3);
+Xedges(end) = []; 
+Yedges(end) = []; 
+Px1 = [-0.1 0.12 -0.05]; 
+Py1 = [-0.1 -0.14 0.15]; 
+closest = interp1(Xedges,Xedges,Px1(1),'nearest');
+xi(1) = find(Xedges==closest);
+closest = interp1(Xedges,Xedges,Px1(2),'nearest');
+xi(2) = find(Xedges==closest);
+closest = interp1(Xedges,Xedges,Px1(3),'nearest');
+xi(3) = find(Xedges==closest);
+closest = interp1(Yedges,Yedges,Py1(1),'nearest');
+yi(1) = find(Yedges==closest);
+yi(1) = length(Yedges)-yi(1);
+closest = interp1(Yedges,Yedges,Py1(2),'nearest');
+yi(2) = find(Yedges==closest);
+yi(2) = length(Yedges)-yi(2);
+closest = interp1(Yedges,Yedges,Py1(3),'nearest');
+yi(3) = find(Yedges==closest);
+yi(3) = length(Yedges)-yi(3);
+BW = poly2mask(xi,yi,length(Yedges),length(Xedges)); 
+%imshow(BW)
+%Eppendorf lado izquierdo: 
+xi2 = zeros(1,3); 
+yi2 = zeros(1,3); 
+Px2 = [-0.2 -0.42 -0.25]; 
+Py2 = [-0.1 -0.14 0.15]; 
+closest = interp1(Xedges,Xedges,Px2(1),'nearest');
+xi2(1) = find(Xedges==closest);
+closest = interp1(Xedges,Xedges,Px2(2),'nearest');
+xi2(2) = find(Xedges==closest);
+closest = interp1(Xedges,Xedges,Px2(3),'nearest');
+xi2(3) = find(Xedges==closest);
+closest = interp1(Yedges,Yedges,Py2(1),'nearest');
+yi2(1) = find(Yedges==closest);
+yi2(1) = length(Yedges)-yi2(1);
+closest = interp1(Yedges,Yedges,Py2(2),'nearest');
+yi2(2) = find(Yedges==closest);
+yi2(2) = length(Yedges)-yi2(2);
+closest = interp1(Yedges,Yedges,Py2(3),'nearest');
+yi2(3) = find(Yedges==closest);
+yi2(3) = length(Yedges)-yi2(3);
+BW2 = poly2mask(xi2,yi2,length(Yedges),length(Xedges)); 
+%imshow(BW2)
+
+% Dosis en pelets:
+DosisPocilloDerecho = mean(Matrix_h3(BW));
+DosisPocilloIzquierdo = mean(Matrix_h3(BW2));
+
+StdPocilloDerecho = std(Matrix_h3(BW)); 
+StdPocilloIzquierdo = std(Matrix_h3(BW2)); 
+
+%Ponemos resultados en tabla: 
+ResulPelet = zeros(2,2); 
+ResulPelet(1,1) = DosisPocilloDerecho; 
+ResulPelet(2,1) = DosisPocilloIzquierdo; 
+ResulPelet(1,2) = StdPocilloDerecho; 
+ResulPelet(2,2) = StdPocilloIzquierdo; 
+ResulPelet = array2table(ResulPelet); 
+ResultadosPelets = renamevars(ResulPelet, ["ResulPelet1","ResulPelet2"],["Dosis [Gy]","Std [Gy]"]);
+
 
 %% Contour80: 
 thresholdBajo = 10; 
@@ -300,8 +366,6 @@ Matrix_h1 = Matrix_h1/AA_h1;
 Matrix_h3 = Matrix_h3/AA_h3; 
 
 figure(3)
-Xedges(end) = [];
-Yedges(end) = [];
 [C,h] = contour(Xedges, Yedges, Matrix_h1, [0.5 0.8], '-r');
 hold on;
 %contour(xpos, ypos, D2, [0.9 0.9], '-g');
