@@ -348,8 +348,8 @@ center_y = height/2;
 % Crea una matriz de coordenadas
 [X, Y] = meshgrid(1:width, 1:height);
 % Ecuación del círculo (solo media luna)
-BW1 = (X - center_x).^2 + (Y - center_y).^2 <= radio^2 & Y >= center_y;
-imshow(BW1);
+BW = (X - center_x).^2 + (Y - center_y).^2 <= radio^2 & Y >= center_y;
+imshow(BW);
 
 %Pocillo izquierdo:
 center_x2 = width/2 - radio - EspacioEntrePocillos/2;
