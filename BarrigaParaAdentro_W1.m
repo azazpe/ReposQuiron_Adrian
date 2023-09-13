@@ -32,7 +32,8 @@ yt = [flip(y),y];
 %% PHSP de entrada experimental: 
 %inPHSP1 = readtable('MapaDosisExpMasParticulas.txt'); %No deja subirlo a
 %github por su tamaño
-inPHSP1 = readtable('MapaDosisExp.txt');
+%inPHSP1 = readtable('MapaDosisExp.txt');
+inPHSP1 = readtable('MapaDosisExpV2.txt');
 inPHSP1 = table2array(inPHSP1); 
 inPHSP1(:,[3,7,8,9,10]) = []; 
 Npart = size(inPHSP1,1);

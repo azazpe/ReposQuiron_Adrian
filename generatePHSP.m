@@ -6,7 +6,7 @@ VSADY = -190;
 E = 230;
 dE = 0.5;
 outputFile = 'MapaDosisExpV2';
-DesiredNParticles = 7.0390e+09;
+DesiredNParticles = 1e6;
 thresoldPercent = 10; % Removes points with less than this % of the dose
 
 %% 1. Load image and turn into something understandable
@@ -74,6 +74,8 @@ for i=1:numel(validNParts)
         lineFormat = '%f\t%f\t%f\t%f\t%f\t%f\t%i\t%i\t%i\t%i\n';
         fprintf(fID,lineFormat,thisX,thisY,finalZ,dCosX(i),dCosY(i),thisE,weight,PID,flag9,flag10);
     end
+    progreso = sum(validNParts(1:i))/DesiredNParticles;
+    fprintf('%f%% progress\n',100*progreso)
 end
 fclose(fID);
 
