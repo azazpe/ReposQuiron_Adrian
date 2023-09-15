@@ -33,7 +33,7 @@ yt = [flip(y),y];
 %inPHSP1 = readtable('MapaDosisExpMasParticulas.txt'); %No deja subirlo a
 %github por su tamaño
 %inPHSP1 = readtable('MapaDosisExp.txt');
-inPHSP1 = readtable('MapaDosisExpV2.txt');
+inPHSP1 = readtable('MapaDosisExp.txt');
 inPHSP1 = table2array(inPHSP1); 
 inPHSP1(:,[3,7,8,9,10]) = []; 
 Npart = size(inPHSP1,1);
@@ -338,23 +338,31 @@ ResultadosIso80.Properties.RowNames = rowNames;
 % %imshow(BW2)
 
 % Dimensiones de la imagen
+Xedges(end) = []; %cm
+Yedges(end) = []; 
 height = length(Yedges);
 width = length(Xedges);
-% Parámetros de la media luna
-radio = 10; % Cambiar por radio medido!
-EspacioEntrePocillos = 10; %% CAMBIAR
-center_x = width/2 + radio + EspacioEntrePocillos/2;
+% Tamaño del píxel en cm
+pixelSize = 0.01693;
+% Parámetros de la media luna convertidos a cm
+radio_cm = 0.573 / 2 ; % cm
+EspacioEntrePocillos_cm = 0.1; % cm
+% Ahora mapeamos estas dimensiones en cm a píxeles
+radio_pix = radio_cm / pixelSize;
+EspacioEntrePocillos_pix = EspacioEntrePocillos_cm / pixelSize;
+center_x = width/2 + radio_pix + EspacioEntrePocillos_pix/2;
 center_y = height/2;
 % Crea una matriz de coordenadas
 [X, Y] = meshgrid(1:width, 1:height);
 % Ecuación del círculo (solo media luna)
-BW = (X - center_x).^2 + (Y - center_y).^2 <= radio^2 & Y >= center_y;
+BW = (X - center_x).^2 + (Y - center_y).^2 <= radio_pix^2 & Y >= center_y;
 imshow(BW);
-
-%Pocillo izquierdo:
-center_x2 = width/2 - radio - EspacioEntrePocillos/2;
-BW2 = (X - center_x2).^2 + (Y - center_y).^2 <= radio^2 & Y >= center_y;
+% Pocillo izquierdo:
+center_x2 = width/2 - radio_pix - EspacioEntrePocillos_pix/2;
+BW2 = (X - center_x2).^2 + (Y - center_y).^2 <= radio_pix^2 & Y >= center_y;
 imshow(BW2);
+imshow(BW + BW2);
+
 %% Histograma de dosis dentro de la zona: 
 %Pocillo derecho: 
 DosisPocillo1 = Matrix_h3(BW);
@@ -368,15 +376,6 @@ figure(3);
 histogram(DosisPocillo2,80);
 xlabel('Dosis Gy');
 title('Histograma Pocillo izquierdo');
-%Ambos pocillos: 
-BWtotal = BW+BW2;
-%imshow(BWtotal);
-DosisDosPocillos = Matrix_h3.*BWtotal;
-DosisDosPocillos = nonzeros(DosisDosPocillos);
-figure(4);
-histogram(DosisDosPocillos,80);
-xlabel('Dosis Gy');
-title('Histograma en los 2 pocillos');
 
 % Dosis en pelets:
 DosisPocilloDerecho = mean(Matrix_h3(BW));
@@ -423,27 +422,84 @@ AA_h3 = prctile(Matrix_h3,98,'all');
 Matrix_h1 = Matrix_h1/AA_h1; 
 Matrix_h3 = Matrix_h3/AA_h3; 
 
-figure(3)
-[C,h] = contour(Xedges, Yedges, Matrix_h1, [0.5 0.8], '-r');
-hold on;
-%contour(xpos, ypos, D2, [0.9 0.9], '-g');
-%contour(xpos, ypos, D3, [0.9 0.9], '-k');
-clabel(C,h)
-[C,h] = contour(Xedges, Yedges, Matrix_h3, [0.5 0.8], '-b');
-clabel(C,h)
-%contour(xpos, ypos, D5, [0.9 0.9], '-m');s
-areaOfInterest = [-1 1 -0.5 0.5];
-xlabel('Ypos [mm]')
-ylabel('Xpos [mm]')
-grid on
-axis(areaOfInterest)
-hold on;
-patch(Px1,Py1,'green','FaceAlpha',0.5);
-hold on; 
-patch(Px2,Py2,'green','FaceAlpha',0.5);
-legend('Nude beam', 'Using compensator')
-title('Isodose lines from Matlab')
+% figure(3)
+% [C,h] = contour(Xedges, Yedges, Matrix_h1, [0.5 0.8], '-r');
+% hold on;
+% %contour(xpos, ypos, D2, [0.9 0.9], '-g');
+% %contour(xpos, ypos, D3, [0.9 0.9], '-k');
+% clabel(C,h)
+% [C,h] = contour(Xedges, Yedges, Matrix_h3, [0.5 0.8], '-b');
+% clabel(C,h)
+% %contour(xpos, ypos, D5, [0.9 0.9], '-m');s
+% areaOfInterest = [-1 1 -0.5 0.5];
+% xlabel('Ypos [mm]')
+% ylabel('Xpos [mm]')
+% grid on
+% axis(areaOfInterest)
+% hold on;
+% boundaries1 = bwboundaries(BW);
+% boundaries2 = bwboundaries(BW2);
+% % Obtén las coordenadas x e y del primer contorno
+% Px1 = boundaries1{1}(:, 2);
+% Py1 = boundaries1{1}(:, 1);
+% % Obtén las coordenadas x e y del segundo contorno
+% Px2 = boundaries2{1}(:, 2);
+% Py2 = boundaries2{1}(:, 1);
+% patch(Px1,Py1,'green','FaceAlpha',0.5);
+% hold on; 
+% patch(Px2,Py2,'green','FaceAlpha',0.5);
+% legend('Nude beam', 'Using compensator')
+% title('Isodose lines from Matlab')
 
+% % Crear una figura
+% figure(3)
+% hold on;
+% % Primero, grafica las medias lunas
+% boundaries1 = bwboundaries(BW);
+% boundaries2 = bwboundaries(BW2);
+% % Obtén las coordenadas x e y del primer contorno
+% Px1 = boundaries1{1}(:, 2);
+% Py1 = boundaries1{1}(:, 1);
+% patch(Px1, Py1, 'green', 'FaceAlpha', 0.5);
+% % Obtén las coordenadas x e y del segundo contorno
+% Px2 = boundaries2{1}(:, 2);
+% Py2 = boundaries2{1}(:, 1);
+% patch(Px2, Py2, 'green', 'FaceAlpha', 0.5);
+% % Ahora, superponer las líneas de contorno
+% [C, h] = contour(Xedges, Yedges, Matrix_h1, [0.5 0.8], '-r');
+% clabel(C, h)
+% [C, h] = contour(Xedges, Yedges, Matrix_h3, [0.5 0.8], '-b');
+% clabel(C, h)
+% xlabel('Ypos [mm]')
+% ylabel('Xpos [mm]')
+% grid on
+% areaOfInterest = [-1 1 -0.5 0.5];
+% axis(areaOfInterest)
+% legend('Pocillo', 'Nude beam', 'Using compensator')
+% title('Isodose lines from Matlab')
+
+figure(3)
+hold on;
+% Muestra las medias lunas usando imshow con transparencia
+BW_combined = BW + BW2;
+imshow(BW_combined, 'InitialMagnification', 'fit', 'XData', [1 width], 'YData', [1 height]);
+set(gca, 'YDir', 'normal');  % Asegúrate de que la dirección del eje Y sea normal
+h_img = imshow(BW_combined); % Devuelve un objeto de imagen
+set(h_img, 'AlphaData', BW_combined*0.5); % 0.5 es la transparencia
+% Ahora, superponer las líneas de contorno
+hold on;
+[C, h] = contour(Xedges, Yedges, Matrix_h1, [0.5 0.8], '-r');
+clabel(C, h);
+hold on;
+[C, h] = contour(Xedges, Yedges, Matrix_h3, [0.5 0.8], '-b');
+clabel(C, h);
+xlabel('Ypos [mm]');
+ylabel('Xpos [mm]');
+grid on;
+areaOfInterest = [-1 1 -0.5 0.5];
+axis(areaOfInterest);
+legend('Pocillo', 'Nude beam', 'Using compensator');
+title('Isodose lines from Matlab');
 
 %% Perfiles: 
 Xedges = Xedges*10; %cm -> mm

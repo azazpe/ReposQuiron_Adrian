@@ -32,6 +32,7 @@ yt = [flip(y),y];
 %% PHSP de entrada experimental: 
 %inPHSP1 = readtable('MapaDosisExpMasParticulas.txt'); %No deja subirlo a
 %github por su tamaño
+%inPHSP1 = readtable('MapaDosisExp.txt');
 inPHSP1 = readtable('MapaDosisExp.txt');
 inPHSP1 = table2array(inPHSP1); 
 inPHSP1(:,[3,7,8,9,10]) = []; 
@@ -339,16 +340,47 @@ ResultadosIso80.Properties.RowNames = rowNames;
 % Dimensiones de la imagen
 height = length(Yedges);
 width = length(Xedges);
-% Parámetros de la media luna
-radio = 10; % Cambia este valor para ajustar el radio de la media luna
-center_x = width/2;
+% Tamaño del píxel en cm
+pixelSize = 0.01693;
+% Parámetros de la media luna convertidos a cm
+radio_cm = 5.73 / 2 / 10; % Convertido a cm
+EspacioEntrePocillos_cm = 1 / 10; % Convertido a cm
+% Ahora mapeamos estas dimensiones en cm a píxeles
+radio_pix = radio_cm / pixelSize;
+EspacioEntrePocillos_pix = EspacioEntrePocillos_cm / pixelSize;
+center_x = width/2 + radio_pix + EspacioEntrePocillos_pix/2;
 center_y = height/2;
 % Crea una matriz de coordenadas
 [X, Y] = meshgrid(1:width, 1:height);
 % Ecuación del círculo (solo media luna)
-BW_circle = (X - center_x).^2 + (Y - center_y).^2 <= radio^2 & Y >= center_y;
-imshow(BW_circle);
+BW = (X - center_x).^2 + (Y - center_y).^2 <= radio_pix^2 & Y >= center_y;
+imshow(BW);
+% Pocillo izquierdo:
+center_x2 = width/2 - radio_pix - EspacioEntrePocillos_pix/2;
+BW2 = (X - center_x2).^2 + (Y - center_y).^2 <= radio_pix^2 & Y >= center_y;
+imshow(BW2);
+imshow(BW + BW2);
 
+
+% % Dimensiones de la imagen
+% height = length(Yedges);
+% width = length(Xedges);
+% % Parámetros de la media luna
+% radio = 5.73/2; % mm
+% EspacioEntrePocillos = 10; %% CAMBIAR
+% center_x = width/2 + radio + EspacioEntrePocillos/2;
+% center_y = height/2;
+% % Crea una matriz de coordenadas
+% [X, Y] = meshgrid(1:width, 1:height);
+% % Ecuación del círculo (solo media luna)
+% BW = (X - center_x).^2 + (Y - center_y).^2 <= radio^2 & Y >= center_y;
+% imshow(BW);
+% 
+% %Pocillo izquierdo:
+% center_x2 = width/2 - radio - EspacioEntrePocillos/2;
+% BW2 = (X - center_x2).^2 + (Y - center_y).^2 <= radio^2 & Y >= center_y;
+% imshow(BW2);
+% imshow(BW+BW2)
 %% Histograma de dosis dentro de la zona: 
 %Pocillo derecho: 
 DosisPocillo1 = Matrix_h3(BW);
