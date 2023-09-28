@@ -1,0 +1,300 @@
+s:Ge/colimator_layer_left_1/type = "TsBox"
+s:Ge/colimator_layer_left_1/material = "Lead"
+s:Ge/colimator_layer_left_1/Parent = "World"
+d:Ge/colimator_layer_left_1/HLX = 1 cm
+d:Ge/colimator_layer_left_1/HLY = 0.5550 cm
+d:Ge/colimator_layer_left_1/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_1/TransX = 0 cm
+d:Ge/colimator_layer_left_1/TransY = -0.9450 cm
+d:Ge/colimator_layer_left_1/TransZ = 1.0050 cm
+
+s:Ge/colimator_layer_right_1/type = "TsBox"
+s:Ge/colimator_layer_right_1/material = "Lead"
+s:Ge/colimator_layer_right_1/Parent = "World"
+d:Ge/colimator_layer_right_1/HLX = 1 cm
+d:Ge/colimator_layer_right_1/HLY = 0.5550 cm
+d:Ge/colimator_layer_right_1/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_1/TransX = 0 cm
+d:Ge/colimator_layer_right_1/TransY = 0.9450 cm
+d:Ge/colimator_layer_right_1/TransZ = 1.0050 cm
+
+s:Ge/colimator_layer_left_2/type = "TsBox"
+s:Ge/colimator_layer_left_2/material = "Lead"
+s:Ge/colimator_layer_left_2/Parent = "World"
+d:Ge/colimator_layer_left_2/HLX = 1 cm
+d:Ge/colimator_layer_left_2/HLY = 0.4733 cm
+d:Ge/colimator_layer_left_2/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_2/TransX = 0 cm
+d:Ge/colimator_layer_left_2/TransY = -1.0267 cm
+d:Ge/colimator_layer_left_2/TransZ = 1.0150 cm
+
+s:Ge/colimator_layer_right_2/type = "TsBox"
+s:Ge/colimator_layer_right_2/material = "Lead"
+s:Ge/colimator_layer_right_2/Parent = "World"
+d:Ge/colimator_layer_right_2/HLX = 1 cm
+d:Ge/colimator_layer_right_2/HLY = 0.4733 cm
+d:Ge/colimator_layer_right_2/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_2/TransX = 0 cm
+d:Ge/colimator_layer_right_2/TransY = 1.0267 cm
+d:Ge/colimator_layer_right_2/TransZ = 1.0150 cm
+
+s:Ge/colimator_layer_left_3/type = "TsBox"
+s:Ge/colimator_layer_left_3/material = "Lead"
+s:Ge/colimator_layer_left_3/Parent = "World"
+d:Ge/colimator_layer_left_3/HLX = 1 cm
+d:Ge/colimator_layer_left_3/HLY = 0.4137 cm
+d:Ge/colimator_layer_left_3/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_3/TransX = 0 cm
+d:Ge/colimator_layer_left_3/TransY = -1.0863 cm
+d:Ge/colimator_layer_left_3/TransZ = 1.0250 cm
+
+s:Ge/colimator_layer_right_3/type = "TsBox"
+s:Ge/colimator_layer_right_3/material = "Lead"
+s:Ge/colimator_layer_right_3/Parent = "World"
+d:Ge/colimator_layer_right_3/HLX = 1 cm
+d:Ge/colimator_layer_right_3/HLY = 0.4137 cm
+d:Ge/colimator_layer_right_3/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_3/TransX = 0 cm
+d:Ge/colimator_layer_right_3/TransY = 1.0863 cm
+d:Ge/colimator_layer_right_3/TransZ = 1.0250 cm
+
+s:Ge/colimator_layer_left_4/type = "TsBox"
+s:Ge/colimator_layer_left_4/material = "Lead"
+s:Ge/colimator_layer_left_4/Parent = "World"
+d:Ge/colimator_layer_left_4/HLX = 1 cm
+d:Ge/colimator_layer_left_4/HLY = 0.3598 cm
+d:Ge/colimator_layer_left_4/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_4/TransX = 0 cm
+d:Ge/colimator_layer_left_4/TransY = -1.1402 cm
+d:Ge/colimator_layer_left_4/TransZ = 1.0350 cm
+
+s:Ge/colimator_layer_right_4/type = "TsBox"
+s:Ge/colimator_layer_right_4/material = "Lead"
+s:Ge/colimator_layer_right_4/Parent = "World"
+d:Ge/colimator_layer_right_4/HLX = 1 cm
+d:Ge/colimator_layer_right_4/HLY = 0.3598 cm
+d:Ge/colimator_layer_right_4/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_4/TransX = 0 cm
+d:Ge/colimator_layer_right_4/TransY = 1.1402 cm
+d:Ge/colimator_layer_right_4/TransZ = 1.0350 cm
+
+s:Ge/colimator_layer_left_5/type = "TsBox"
+s:Ge/colimator_layer_left_5/material = "Lead"
+s:Ge/colimator_layer_left_5/Parent = "World"
+d:Ge/colimator_layer_left_5/HLX = 1 cm
+d:Ge/colimator_layer_left_5/HLY = 0.3170 cm
+d:Ge/colimator_layer_left_5/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_5/TransX = 0 cm
+d:Ge/colimator_layer_left_5/TransY = -1.1830 cm
+d:Ge/colimator_layer_left_5/TransZ = 1.0450 cm
+
+s:Ge/colimator_layer_right_5/type = "TsBox"
+s:Ge/colimator_layer_right_5/material = "Lead"
+s:Ge/colimator_layer_right_5/Parent = "World"
+d:Ge/colimator_layer_right_5/HLX = 1 cm
+d:Ge/colimator_layer_right_5/HLY = 0.3170 cm
+d:Ge/colimator_layer_right_5/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_5/TransX = 0 cm
+d:Ge/colimator_layer_right_5/TransY = 1.1830 cm
+d:Ge/colimator_layer_right_5/TransZ = 1.0450 cm
+
+s:Ge/colimator_layer_left_6/type = "TsBox"
+s:Ge/colimator_layer_left_6/material = "Lead"
+s:Ge/colimator_layer_left_6/Parent = "World"
+d:Ge/colimator_layer_left_6/HLX = 1 cm
+d:Ge/colimator_layer_left_6/HLY = 0.2745 cm
+d:Ge/colimator_layer_left_6/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_6/TransX = 0 cm
+d:Ge/colimator_layer_left_6/TransY = -1.2255 cm
+d:Ge/colimator_layer_left_6/TransZ = 1.0550 cm
+
+s:Ge/colimator_layer_right_6/type = "TsBox"
+s:Ge/colimator_layer_right_6/material = "Lead"
+s:Ge/colimator_layer_right_6/Parent = "World"
+d:Ge/colimator_layer_right_6/HLX = 1 cm
+d:Ge/colimator_layer_right_6/HLY = 0.2745 cm
+d:Ge/colimator_layer_right_6/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_6/TransX = 0 cm
+d:Ge/colimator_layer_right_6/TransY = 1.2255 cm
+d:Ge/colimator_layer_right_6/TransZ = 1.0550 cm
+
+s:Ge/colimator_layer_left_7/type = "TsBox"
+s:Ge/colimator_layer_left_7/material = "Lead"
+s:Ge/colimator_layer_left_7/Parent = "World"
+d:Ge/colimator_layer_left_7/HLX = 1 cm
+d:Ge/colimator_layer_left_7/HLY = 0.2376 cm
+d:Ge/colimator_layer_left_7/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_7/TransX = 0 cm
+d:Ge/colimator_layer_left_7/TransY = -1.2624 cm
+d:Ge/colimator_layer_left_7/TransZ = 1.0650 cm
+
+s:Ge/colimator_layer_right_7/type = "TsBox"
+s:Ge/colimator_layer_right_7/material = "Lead"
+s:Ge/colimator_layer_right_7/Parent = "World"
+d:Ge/colimator_layer_right_7/HLX = 1 cm
+d:Ge/colimator_layer_right_7/HLY = 0.2376 cm
+d:Ge/colimator_layer_right_7/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_7/TransX = 0 cm
+d:Ge/colimator_layer_right_7/TransY = 1.2624 cm
+d:Ge/colimator_layer_right_7/TransZ = 1.0650 cm
+
+s:Ge/colimator_layer_left_8/type = "TsBox"
+s:Ge/colimator_layer_left_8/material = "Lead"
+s:Ge/colimator_layer_left_8/Parent = "World"
+d:Ge/colimator_layer_left_8/HLX = 1 cm
+d:Ge/colimator_layer_left_8/HLY = 0.2061 cm
+d:Ge/colimator_layer_left_8/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_8/TransX = 0 cm
+d:Ge/colimator_layer_left_8/TransY = -1.2939 cm
+d:Ge/colimator_layer_left_8/TransZ = 1.0750 cm
+
+s:Ge/colimator_layer_right_8/type = "TsBox"
+s:Ge/colimator_layer_right_8/material = "Lead"
+s:Ge/colimator_layer_right_8/Parent = "World"
+d:Ge/colimator_layer_right_8/HLX = 1 cm
+d:Ge/colimator_layer_right_8/HLY = 0.2061 cm
+d:Ge/colimator_layer_right_8/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_8/TransX = 0 cm
+d:Ge/colimator_layer_right_8/TransY = 1.2939 cm
+d:Ge/colimator_layer_right_8/TransZ = 1.0750 cm
+
+s:Ge/colimator_layer_left_9/type = "TsBox"
+s:Ge/colimator_layer_left_9/material = "Lead"
+s:Ge/colimator_layer_left_9/Parent = "World"
+d:Ge/colimator_layer_left_9/HLX = 1 cm
+d:Ge/colimator_layer_left_9/HLY = 0.1696 cm
+d:Ge/colimator_layer_left_9/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_9/TransX = 0 cm
+d:Ge/colimator_layer_left_9/TransY = -1.3304 cm
+d:Ge/colimator_layer_left_9/TransZ = 1.0850 cm
+
+s:Ge/colimator_layer_right_9/type = "TsBox"
+s:Ge/colimator_layer_right_9/material = "Lead"
+s:Ge/colimator_layer_right_9/Parent = "World"
+d:Ge/colimator_layer_right_9/HLX = 1 cm
+d:Ge/colimator_layer_right_9/HLY = 0.1696 cm
+d:Ge/colimator_layer_right_9/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_9/TransX = 0 cm
+d:Ge/colimator_layer_right_9/TransY = 1.3304 cm
+d:Ge/colimator_layer_right_9/TransZ = 1.0850 cm
+
+s:Ge/colimator_layer_left_10/type = "TsBox"
+s:Ge/colimator_layer_left_10/material = "Lead"
+s:Ge/colimator_layer_left_10/Parent = "World"
+d:Ge/colimator_layer_left_10/HLX = 1 cm
+d:Ge/colimator_layer_left_10/HLY = 0.1386 cm
+d:Ge/colimator_layer_left_10/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_10/TransX = 0 cm
+d:Ge/colimator_layer_left_10/TransY = -1.3614 cm
+d:Ge/colimator_layer_left_10/TransZ = 1.0950 cm
+
+s:Ge/colimator_layer_right_10/type = "TsBox"
+s:Ge/colimator_layer_right_10/material = "Lead"
+s:Ge/colimator_layer_right_10/Parent = "World"
+d:Ge/colimator_layer_right_10/HLX = 1 cm
+d:Ge/colimator_layer_right_10/HLY = 0.1386 cm
+d:Ge/colimator_layer_right_10/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_10/TransX = 0 cm
+d:Ge/colimator_layer_right_10/TransY = 1.3614 cm
+d:Ge/colimator_layer_right_10/TransZ = 1.0950 cm
+
+s:Ge/colimator_layer_left_11/type = "TsBox"
+s:Ge/colimator_layer_left_11/material = "Lead"
+s:Ge/colimator_layer_left_11/Parent = "World"
+d:Ge/colimator_layer_left_11/HLX = 1 cm
+d:Ge/colimator_layer_left_11/HLY = 0.1128 cm
+d:Ge/colimator_layer_left_11/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_11/TransX = 0 cm
+d:Ge/colimator_layer_left_11/TransY = -1.3872 cm
+d:Ge/colimator_layer_left_11/TransZ = 1.1050 cm
+
+s:Ge/colimator_layer_right_11/type = "TsBox"
+s:Ge/colimator_layer_right_11/material = "Lead"
+s:Ge/colimator_layer_right_11/Parent = "World"
+d:Ge/colimator_layer_right_11/HLX = 1 cm
+d:Ge/colimator_layer_right_11/HLY = 0.1128 cm
+d:Ge/colimator_layer_right_11/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_11/TransX = 0 cm
+d:Ge/colimator_layer_right_11/TransY = 1.3872 cm
+d:Ge/colimator_layer_right_11/TransZ = 1.1050 cm
+
+s:Ge/colimator_layer_left_12/type = "TsBox"
+s:Ge/colimator_layer_left_12/material = "Lead"
+s:Ge/colimator_layer_left_12/Parent = "World"
+d:Ge/colimator_layer_left_12/HLX = 1 cm
+d:Ge/colimator_layer_left_12/HLY = 0.0873 cm
+d:Ge/colimator_layer_left_12/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_12/TransX = 0 cm
+d:Ge/colimator_layer_left_12/TransY = -1.4127 cm
+d:Ge/colimator_layer_left_12/TransZ = 1.1150 cm
+
+s:Ge/colimator_layer_right_12/type = "TsBox"
+s:Ge/colimator_layer_right_12/material = "Lead"
+s:Ge/colimator_layer_right_12/Parent = "World"
+d:Ge/colimator_layer_right_12/HLX = 1 cm
+d:Ge/colimator_layer_right_12/HLY = 0.0873 cm
+d:Ge/colimator_layer_right_12/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_12/TransX = 0 cm
+d:Ge/colimator_layer_right_12/TransY = 1.4127 cm
+d:Ge/colimator_layer_right_12/TransZ = 1.1150 cm
+
+s:Ge/colimator_layer_left_13/type = "TsBox"
+s:Ge/colimator_layer_left_13/material = "Lead"
+s:Ge/colimator_layer_left_13/Parent = "World"
+d:Ge/colimator_layer_left_13/HLX = 1 cm
+d:Ge/colimator_layer_left_13/HLY = 0.0569 cm
+d:Ge/colimator_layer_left_13/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_13/TransX = 0 cm
+d:Ge/colimator_layer_left_13/TransY = -1.4431 cm
+d:Ge/colimator_layer_left_13/TransZ = 1.1250 cm
+
+s:Ge/colimator_layer_right_13/type = "TsBox"
+s:Ge/colimator_layer_right_13/material = "Lead"
+s:Ge/colimator_layer_right_13/Parent = "World"
+d:Ge/colimator_layer_right_13/HLX = 1 cm
+d:Ge/colimator_layer_right_13/HLY = 0.0569 cm
+d:Ge/colimator_layer_right_13/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_13/TransX = 0 cm
+d:Ge/colimator_layer_right_13/TransY = 1.4431 cm
+d:Ge/colimator_layer_right_13/TransZ = 1.1250 cm
+
+s:Ge/colimator_layer_left_14/type = "TsBox"
+s:Ge/colimator_layer_left_14/material = "Lead"
+s:Ge/colimator_layer_left_14/Parent = "World"
+d:Ge/colimator_layer_left_14/HLX = 1 cm
+d:Ge/colimator_layer_left_14/HLY = 0.0317 cm
+d:Ge/colimator_layer_left_14/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_14/TransX = 0 cm
+d:Ge/colimator_layer_left_14/TransY = -1.4683 cm
+d:Ge/colimator_layer_left_14/TransZ = 1.1350 cm
+
+s:Ge/colimator_layer_right_14/type = "TsBox"
+s:Ge/colimator_layer_right_14/material = "Lead"
+s:Ge/colimator_layer_right_14/Parent = "World"
+d:Ge/colimator_layer_right_14/HLX = 1 cm
+d:Ge/colimator_layer_right_14/HLY = 0.0317 cm
+d:Ge/colimator_layer_right_14/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_14/TransX = 0 cm
+d:Ge/colimator_layer_right_14/TransY = 1.4683 cm
+d:Ge/colimator_layer_right_14/TransZ = 1.1350 cm
+
+s:Ge/colimator_layer_left_15/type = "TsBox"
+s:Ge/colimator_layer_left_15/material = "Lead"
+s:Ge/colimator_layer_left_15/Parent = "World"
+d:Ge/colimator_layer_left_15/HLX = 1 cm
+d:Ge/colimator_layer_left_15/HLY = 0.0117 cm
+d:Ge/colimator_layer_left_15/HLZ = 0.0050 cm
+d:Ge/colimator_layer_left_15/TransX = 0 cm
+d:Ge/colimator_layer_left_15/TransY = -1.4883 cm
+d:Ge/colimator_layer_left_15/TransZ = 1.1450 cm
+
+s:Ge/colimator_layer_right_15/type = "TsBox"
+s:Ge/colimator_layer_right_15/material = "Lead"
+s:Ge/colimator_layer_right_15/Parent = "World"
+d:Ge/colimator_layer_right_15/HLX = 1 cm
+d:Ge/colimator_layer_right_15/HLY = 0.0117 cm
+d:Ge/colimator_layer_right_15/HLZ = 0.0050 cm
+d:Ge/colimator_layer_right_15/TransX = 0 cm
+d:Ge/colimator_layer_right_15/TransY = 1.4883 cm
+d:Ge/colimator_layer_right_15/TransZ = 1.1450 cm
+

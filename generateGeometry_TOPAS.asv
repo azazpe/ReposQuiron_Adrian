@@ -1,0 +1,75 @@
+clc
+clear
+
+%% Parametrizacion elipse: 
+% Semiejes de la elipse
+a = 3.5; % Radio largo
+b = 1.6; % Radio corto
+% Centro de la elipse
+x_center = 0;
+y_center = 1.6;
+% Parametrización de la mitad inferior de la elipse
+theta = linspace(-pi, 0, 1000); % Aquí solo tomamos la parte inferior
+x = a * cos(theta) + x_center;
+y = b * sin(theta) + y_center;
+% Filtrar valores de x entre -1.5 y 1.5
+mask = (x >= -1.5) & (x <= 1.5);
+x = x(mask);
+y = y(mask);
+% Graficar la parte inferior de la elipse
+figure;
+plot(x, y, 'b-', 'LineWidth', 2);
+axis equal;
+xlabel('x');
+ylabel('y');
+title('Elipse representativa de la curva del colimador');
+grid on;
+
+%% Constantes: 
+
+L_target2 = y(1,1); % Profundidad de la curvatura
+dz = 0.01; % Grosor de cada capa en cm
+N_laminas = round(L_target2 / dz);
+
+
+%% Colimador parte curva: 
+% Abre un archivo para escribir
+filename = sprintf('GeometríaColimadorBarrigaDentro_%.2f.txt', dz);
+fid = fopen(filename, 'w');
+y_obj
+
+for i = 1:N_laminas
+
+    y_target = dz*i; 
+    [~, idx] = min(abs(y - y_target));
+    x_value = x(idx); 
+
+    % Lamina izquierda
+    fprintf(fid, 's:Ge/colimator_layer_left_%d/type = "TsBox"\n', i);
+    fprintf(fid, 's:Ge/colimator_layer_left_%d/material = "Lead"\n', i);
+    fprintf(fid, 's:Ge/colimator_layer_left_%d/Parent = "World"\n',i);
+
+    fprintf(fid, 'd:Ge/colimator_layer_left_%d/HLX = 1 cm\n', i); 
+    fprintf(fid, 'd:Ge/colimator_layer_left_%d/HLY = %.4f cm\n',i, (1.5+x_value)/2); 
+    fprintf(fid, 'd:Ge/colimator_layer_left_%d/HLZ = %.4f cm\n', i, dz/2); 
+
+    fprintf(fid, 'd:Ge/colimator_layer_left_%d/TransX = 0 cm\n', i); 
+    fprintf(fid, 'd:Ge/colimator_layer_left_%d/TransY = %.4f cm\n',i, -1.5+(1.5+x_value)/2); 
+    fprintf(fid, 'd:Ge/colimator_layer_left_%d/TransZ = %.4f cm\n\n', i, (i*dz-dz/2)+1);  % +1 del primer cm de Pb
+    
+    % Lamina derecha
+    fprintf(fid, 's:Ge/colimator_layer_right_%d/type = "TsBox"\n', i); 
+    fprintf(fid, 's:Ge/colimator_layer_right_%d/material = "Lead"\n', i); 
+    fprintf(fid, 's:Ge/colimator_layer_right_%d/Parent = "World"\n',i); 
+
+    fprintf(fid, 'd:Ge/colimator_layer_right_%d/HLX = 1 cm\n', i); 
+    fprintf(fid, 'd:Ge/colimator_layer_right_%d/HLY = %.4f cm\n',i, (1.5+x_value)/2);  
+    fprintf(fid, 'd:Ge/colimator_layer_right_%d/HLZ = %.4f cm\n', i, dz/2); 
+
+    fprintf(fid, 'd:Ge/colimator_layer_right_%d/TransX = 0 cm\n', i);  
+    fprintf(fid, 'd:Ge/colimator_layer_right_%d/TransY = %.4f cm\n',i, 1.5-(1.5+x_value)/2); 
+    fprintf(fid, 'd:Ge/colimator_layer_right_%d/TransZ = %.4f cm\n\n', i, (i*dz-dz/2)+1);   
+end
+
+fclose(fid);
+fprintf('Datos guardados en %s\n', filename);
